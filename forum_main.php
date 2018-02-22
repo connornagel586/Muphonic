@@ -12,6 +12,7 @@ session_start();
 	</head>
 	<header>
 		<img src="images/mu.png" id="icon">
+		<h1>Forum</h1>
 	</header>
 	<body>
 		<nav>
@@ -24,7 +25,10 @@ session_start();
 			</ul>
 		</nav>
 		<div class="main">
-
+			<div class="user_body">
+				<div><p>Forum Pages</p></div>
+				<div><p>Pinned Discussions</p></div>
+			</div>
 		</div>
 	</body>
 	<footer>

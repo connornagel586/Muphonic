@@ -1,9 +1,6 @@
-*{
-	margin:0;
-	padding:0;
-}
 html, body {
 	height: 100%;
+	width:100%;
 	margin: 0px;
 	padding: 0px;
 	background-color: #db5a1e;
@@ -14,9 +11,10 @@ body{
 	min-height: 100%;
 }
 .main{
+	display:block;
 	padding:2%;
 	background-color: #191927;
-	min-height: 70%;
+	min-height: 90%;
 	width: 80%;
 	margin-left: 8%;
 	border-style: outset;
@@ -24,35 +22,40 @@ body{
 	border-bottom-style:inset;
 	border-top-style:none;
 	border-color: #636363;
+	align-content: center;
+	padding-bottom:40px;
+	overflow: auto;
 }
 
 footer{
-	position:absolute;
+	position:relative;
+	margin-top: -40px;
 	bottom:0;
 	border-top:outset;
 	width:100%;
-	height:20px;
-	padding: 10px;
+	height:40px;
+	clear:both;
 	background-color:#8b8b8b;
 	border-top-color: #636363;
+
 
 }
 nav a{
 	display: inline;
 	border-right: solid;
-	border-top: solid;
 	margin: 0px;
 	text-decoration: none;
-	float:left;
 	font-size: 20px;
 	border-color:#636363;
 	color:#000000;
+		position:relative;
 
 
 }
 nav ul{
 	margin: 0;
-	height:23px;
+	padding:0;
+
 }
 #icon{
 	height: 100px;
@@ -62,8 +65,32 @@ nav {
 	border-bottom: inset;
 	background-color:#191927;
 	border-bottom-color: #636363;
-	height:23px;
 }
 header{
 	background-color: #8b8b8b;
+	height:100px;
+	padding:10px;
+
+}
+header h1{
+	display: inline;
+}
+
+#descriptBody{
+	display:inline-block;
+	min-height: 100%;
+	width: 90%;
+	margin-left:5%;
+	align-content:center;
+	background-color:white;
+	text-align:center;
+}
+.user_body{
+	display:block;
+	min-height: 100%;
+	width: 90%;
+	margin-left:5%;
+	align-content:center;
+	background-color:white;
+	text-align:center;
 }

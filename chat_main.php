@@ -12,6 +12,7 @@ session_start();
 	</head>
 	<header>
 		<img src="images/mu.png" id="icon">
+		<h1>Chat</h1>
 	</header>
 	<body>
 		<nav>
@@ -24,7 +25,10 @@ session_start();
 			</ul>
 		</nav>
 		<div class="main">
-
+			<div class="user_body">
+				<div><p>Chat Rooms</p></div>
+				<div><p>Search/Filter</p></div>
+			</div>
 		</div>
 	</body>
 	<footer>

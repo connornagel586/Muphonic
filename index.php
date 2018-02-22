@@ -12,7 +12,8 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="style/index.css">
 	</head>
 	<header>
-		<h1>Muphonic</h1>	
+		<img src="images/mu.png" id="icon">
+		<h1>Login Page</h1>
 	</header>
 	<body>
 		<nav>
