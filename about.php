@@ -25,7 +25,7 @@ session_start();
 			</ul>
 		</nav>
 		<div class="main">
-				<div id="descriptBody">
+				<div class="descriptBody">
 					<p>This the body of the paragraph that will describe the purpose of this website. This will come almost last.</p>
 				</div>
 		</div>

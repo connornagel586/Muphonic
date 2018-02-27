@@ -26,8 +26,12 @@ session_start();
 		</nav>
 		<div class="main">
 			<div class="user_body">
-				<div><p>User Comments</p></div>
-				<div><p>User Favorites</p></div>
+				<div class="comments">
+					<p>User Comments</p>
+				</div>
+				<div class="favorites">
+					<p>User Favorites</p>
+				</div>
 			</div>
 		</div>
 	</body>

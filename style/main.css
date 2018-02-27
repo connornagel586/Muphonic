@@ -7,7 +7,6 @@ html, body {
 	font-family: helvetica;
 }
 body{
-	width:100%;
 	min-height: 100%;
 }
 .main{
@@ -48,7 +47,7 @@ nav a{
 	font-size: 20px;
 	border-color:#636363;
 	color:#000000;
-		position:relative;
+	
 
 
 }
@@ -76,21 +75,33 @@ header h1{
 	display: inline;
 }
 
-#descriptBody{
-	display:inline-block;
-	min-height: 100%;
-	width: 90%;
-	margin-left:5%;
+.descriptBody{
+	display: inline-block;
+	height: 600px;
+	width: 86%;
+	margin-left:7%;
 	align-content:center;
-	background-color:white;
+	background-color: #8b8b8b;
 	text-align:center;
 }
 .user_body{
-	display:block;
-	min-height: 100%;
+	min-height: 500px;
 	width: 90%;
 	margin-left:5%;
-	align-content:center;
-	background-color:white;
+	background-color:#8b8b8b;
 	text-align:center;
+	
+}
+.user_body div {
+	width: 40%;
+	height: 80%;
+	display: inline-block;
+	border:solid 1px;
+}
+.user_body div > p {
+	height:80%;
+}
+.descriptBody p {
+
+	height: 90%;
 }
