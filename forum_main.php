@@ -1,7 +1,11 @@
-<?php 
+<?php
 //header('Location: home_page.php');
 session_start();
-
+if(!isset($_SESSION['user_id'])){
+	session_destroy();
+	header('Location: index.php');
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +25,7 @@ session_start();
 				<a href="home_page.php">Home</a>
 				<a href="chat_main.php">Chat</a>
 				<a href="forum_main.php">Forum</a>
-				<a href="index.php">Sign Out</a>
+				<a href="handlers/signoutHandler.php">Sign Out</a>
 			</ul>
 		</nav>
 		<div class="main">

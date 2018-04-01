@@ -1,7 +1,11 @@
-<?php 
+<?php
 //header('Location: home_page.php');
 session_start();
-
+if(!isset($_SESSION['user_id'])){
+	session_destroy();
+	header('Location: index.php');
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +16,7 @@ session_start();
 	</head>
 	<header>
 		<img src="images/mu.png" id="icon">
-		<h1>Muphonic</h1>	
+		<h1>Muphonic</h1>
 	</header>
 	<body>
 		<nav>

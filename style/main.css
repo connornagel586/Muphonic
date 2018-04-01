@@ -1,21 +1,28 @@
-html, body {
+html,body {
 	height: 100%;
 	width:100%;
+	min-height:100%;
 	margin: 0px;
 	padding: 0px;
 	background-color: #db5a1e;
 	font-family: helvetica;
 }
+
 body{
-	min-height: 100%;
+	min-height:100%;
+}
+#container {
+	min-height:100%;
+	position:relative;
+
 }
 .main{
 	display:block;
 	padding:2%;
 	background-color: #191927;
-	min-height: 90%;
+	min-height:100px;
 	width: 80%;
-	margin-left: 8%;
+	margin: 0% 8% 80px 8%;
 	border-style: outset;
 	border-right-style: inset;
 	border-bottom-style:inset;
@@ -24,16 +31,15 @@ body{
 	align-content: center;
 	padding-bottom:40px;
 	overflow: auto;
-}
-
-footer{
 	position:relative;
-	margin-top: -40px;
-	bottom:0;
+}
+footer{
+	margin: 0;
+	bottom: 0;
 	border-top:outset;
 	width:100%;
 	height:40px;
-	clear:both;
+
 	background-color:#8b8b8b;
 	border-top-color: #636363;
 
@@ -47,7 +53,7 @@ nav a{
 	font-size: 20px;
 	border-color:#636363;
 	color:#000000;
-	
+
 
 
 }
@@ -90,7 +96,7 @@ header h1{
 	margin-left:5%;
 	background-color:#8b8b8b;
 	text-align:center;
-	
+
 }
 .user_body div {
 	width: 40%;
