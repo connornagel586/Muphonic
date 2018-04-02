@@ -21,6 +21,7 @@ DROP TABLE IF EXISTS `topics`;
 CREATE TABLE IF NOT EXISTS `topics` (
   `topic_id` int(10) NOT NULL AUTO_INCREMENT,
   `topic_title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
+  `topic_text` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
   `created_by` int(10) NOT NULL,
   `num_comments` int(100) NOT NULL,
   `time_created` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -36,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment_id` int(10) NOT NULL AUTO_INCREMENT,
   `topic_id` int(10) NOT NULL,
   `posted_by` int(10) NOT NULL,
-  `comment_text` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
+  `comment_text` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
   `time_posted` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   PRIMARY KEY (`comment_id`),
   CONSTRAINT `comment_user` FOREIGN KEY (`posted_by`) REFERENCES `user_info` (`user_id`) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -50,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `rooms`(
   `room_id` int(10) NOT NULL AUTO_INCREMENT,
   `room_title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
   `created_by` int(4) NOT NULL,
-  `time_created`DATETIME NOT NULL,
+  `time_created` DATETIME NOT NULL,
   PRIMARY KEY (`room_id`),
   CONSTRAINT `room_user` FOREIGN KEY (`created_by`) REFERENCES `user_info` (`user_id`) ON UPDATE CASCADE ON DELETE CASCADE,
   KEY `Room ID` (`room_id`)

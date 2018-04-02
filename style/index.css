@@ -1,5 +1,9 @@
-.main{
+.about{
   padding:2%;
-  width:40%;
-  margin: 0 28%;
+  width:60%;
+  margin: 0 18%;
+  display:inline-block;
+}
+#login, #create_account{
+  display:inline;
 }

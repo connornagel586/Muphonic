@@ -1,0 +1,53 @@
+.user_topics{
+	min-height: 500px;
+	width: 20%;
+	margin: auto 0.5%;
+	background-color:#8b8b8b;
+	text-align:center;
+  display:block;
+  float:left;
+}
+
+.topic_panel{
+	width: 78%;
+	min-height:500px;
+	background-color:#8b8b8b;
+	text-align:center;
+	float:left;
+	position:relative;
+}
+.topic{
+  margin: 10px;
+  padding: 5px;
+  text-align:left;
+  border: solid 1px;
+	text-decoration: none;
+	border-color:black;
+	color: black;
+}
+#topics{
+	min-height:50%;
+
+}
+.new_topic{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+}
+#add_topic{
+  margin: 10px;
+	float:left;
+
+}
+.topic span{
+float:right;
+}
+.topic_page{
+	width: 90%;
+	min-height:500px;
+	background-color:#8b8b8b;
+	text-align:center;
+	float:left;
+	position:relative;
+}

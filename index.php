@@ -1,47 +1,31 @@
 <?php
 session_start();
+$_SESSION['current_page'] = "index.php";
+include('template/header.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Muphonic</title>
-		<link rel="stylesheet" type="text/css" href="style/main.css">
-		<link rel="stylesheet" type="text/css" href="style/index.css">
-	</head>
 
-	<body>
-	<header>
-		<img src="images/mu.png" id="icon">
-		<h1>Login Page</h1>
-	</header>
-		<nav>
-			<ul>
-				<a href="about.php">About</a>
-			</ul>
-		</nav>
-		<div class="main">
+			<div id="login">
 			<form action="handlers/loginHandler.php" method="post">
 
-				Username:<input type="text" name="username"><br>
+				<input type="text" placeholder="Username" name="username"><br>
 
-				Password: <input type="password" name="password">
+				<input type="password" placeholder="Password" name="password">
 
 				<input type="submit" value="Submit">
 			</form>
+		</div>
+		<div id="create_account">
+			<a href="">Create an Account</a>
 			<form action="handlers/loginHandler.php" method="post">
 
-					Email:<input type="text" name="email"><br>
+					<input type="text" placeholder="Email" name="email"><br>
 
-					Username:<input type="text" name="username"><br>
+					<input type="text" placeholder="Username" name="username"><br>
 
-					Password:<input type="password" name="password">
+					<input type="password" placeholder="Password" name="password">
 					<input type="submit" value="Submit">
 			</form>
 		</div>
 
-	</body>
-	<footer>
-		<p>Connor Nagel Boise State University</p>
-	</footer>
-</html>
+<?php include('template/footer.php'); ?>

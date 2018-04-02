@@ -4,72 +4,8 @@ html,body {
 	min-height:100%;
 	margin: 0px;
 	padding: 0px;
-	background-color: #db5a1e;
-	font-family: helvetica;
-}
-
-body{
-	min-height:100%;
-}
-#container {
-	min-height:100%;
-	position:relative;
-
-}
-.main{
-	display:block;
-	padding:2%;
 	background-color: #191927;
-	min-height:100px;
-	width: 80%;
-	margin: 0% 8% 80px 8%;
-	border-style: outset;
-	border-right-style: inset;
-	border-bottom-style:inset;
-	border-top-style:none;
-	border-color: #636363;
-	align-content: center;
-	padding-bottom:40px;
-	overflow: auto;
-	position:relative;
-}
-footer{
-	margin: 0;
-	bottom: 0;
-	border-top:outset;
-	width:100%;
-	height:40px;
-
-	background-color:#8b8b8b;
-	border-top-color: #636363;
-
-
-}
-nav a{
-	display: inline;
-	border-right: solid;
-	margin: 0px;
-	text-decoration: none;
-	font-size: 20px;
-	border-color:#636363;
-	color:#000000;
-
-
-
-}
-nav ul{
-	margin: 0;
-	padding:0;
-
-}
-#icon{
-	height: 100px;
-	width: 100px;
-}
-nav {
-	border-bottom: inset;
-	background-color:#191927;
-	border-bottom-color: #636363;
+	font-family: helvetica;
 }
 header{
 	background-color: #8b8b8b;
@@ -80,34 +16,59 @@ header{
 header h1{
 	display: inline;
 }
-
-.descriptBody{
-	display: inline-block;
-	height: 600px;
-	width: 86%;
-	margin-left:7%;
-	align-content:center;
-	background-color: #8b8b8b;
-	text-align:center;
-}
-.user_body{
-	min-height: 500px;
-	width: 90%;
-	margin-left:5%;
+footer{
+	margin: 0;
+	bottom: 0;
+	border-top:outset;
+	width:100%;
+	height:40px;
 	background-color:#8b8b8b;
-	text-align:center;
+	border-top-color: #636363;
+	position:absolute;
+}
+#icon{
+	height: 100px;
+	width: 100px;
+}
+#container {
+	min-height:100%;
+	position:relative;
+	padding:0 0;
+}
+.main{
+	display:block;
+	padding:2%;
+	background-color: #db5a1e;
+	min-height:200px;
+	width: 80%;
+	margin: 20px 8% 80px 8%;
+	border-style: outset;
+	border-right-style: inset;
+	border-bottom-style:inset;
+	border-top-style:outset;
+	border-color: #636363;
+	align-content: center;
+	padding-bottom:40px;
+	overflow: auto;
+	position:relative;
+}
 
+nav {
+	border-bottom: inset;
+	background-color:#8b8b8b;
+	border-bottom-color: #636363;
 }
-.user_body div {
-	width: 40%;
-	height: 80%;
-	display: inline-block;
-	border:solid 1px;
+nav ul{
+	margin: 0;
+	padding:0;
 }
-.user_body div > p {
-	height:80%;
-}
-.descriptBody p {
-
-	height: 90%;
+nav a{
+	display: inline;
+	border-right: solid;
+	margin: 0px;
+	text-decoration: none;
+	font-size: 20px;
+	border-color:#636363;
+	color:#000000;
+	padding: 0px 10px;
 }

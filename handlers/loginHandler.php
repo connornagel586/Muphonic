@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../dao.php');
+require_once('dao.php');
 if(isset($_POST["email"])){
 $newAccount = array(
 	"username"=>htmlspecialchars($_POST["username"]),

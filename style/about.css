@@ -1,0 +1,13 @@
+.descriptBody{
+	display: inline-block;
+	height: 100px;
+	width: 86%;
+	margin-left:7%;
+	align-content:center;
+	background-color: #8b8b8b;
+	text-align:center;
+}
+
+.descriptBody p {
+	height: 90%;
+}
