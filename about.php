@@ -1,16 +1,15 @@
 <?php
 //header('Location: home_page.php');
 session_start();
-if(!isset($_SESSION['user_id'])){
-	session_destroy();
-	header('Location: index.php');
-	exit;
+if(isset($_SESSION['user_id'])){
+	$_SESSION['current_page'] = "about_home";
+}else{
+	$_SESSION['current_page'] = "about_index";
 }
-$_SESSION['current_page'] = "about.php";
 include('template/header.php');
 ?>
 
 				<div class="descriptBody">
-					<p>This the body of the paragraph that will describe the purpose of this website. This will come almost last.</p>
+					<p>This site has the forum pages part working, however the chat still needs work because I'm still trying to figure out how to use ajax.</p>
 				</div>
 <?php include('template/footer.php'); ?>

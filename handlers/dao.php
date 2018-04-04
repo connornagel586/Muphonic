@@ -66,7 +66,8 @@ class DAO {
 		$query->execute();
 	}
 
-	public function create_post($postInfo){}
+	public function post_comment($postInfo){}
+	public function post_topic($postInfo){}
 
 	public function get_topics($limit){
 		$conn = $this->getConnection();

@@ -11,7 +11,6 @@ if(!isset($_SESSION['user_id'])){
 include('template/header.php');
 ?>
 
-
 			<div class="user_body">
 				<div class="comments">
 					<p>User Comments</p>

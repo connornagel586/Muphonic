@@ -25,7 +25,11 @@
 				$pageTitle ="Home Page";
 				break;
 
-				case "about.php":
+				case "about_home":
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/about.css\">";
+				$pageTitle ="About";
+				break;
+				case "about_index":
 				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/about.css\">";
 				$pageTitle ="About";
 				break;
@@ -62,11 +66,22 @@
 
 				<nav>
 					<ul>
-						<a href="about.php">About</a>
-						<a href="home_page.php">Home</a>
-						<a href="chat_main.php">Chat</a>
-						<a href="forum_main.php">Forum</a>
-						<a href="handlers/signoutHandler.php">Sign Out</a>
+						<?php
+						if(isset($_SESSION['user_id'])){
+							echo "<a href=\"about.php\">About</a>
+							<a href=\"home_page.php\">Home</a>
+							<a href=\"chat_main.php\">Chat</a>
+							<a href=\"forum_main.php\">Forum</a>
+							<a href=\"handlers/signoutHandler.php\">Sign Out</a>";
+						}
+						else if($_SESSION['current_page'] == "about_index"){
+							echo "<a href=\"about.php\">About</a>
+							<a href=\"index.php\">Index</a>";
+						}
+						else{
+						echo "<a href=\"about.php\">About</a>";
+					}
+						?>
 					</ul>
 				</nav>
 				<div class="main">

@@ -11,7 +11,6 @@ header{
 	background-color: #8b8b8b;
 	height:100px;
 	padding:10px;
-
 }
 header h1{
 	display: inline;
@@ -34,6 +33,7 @@ footer{
 	min-height:100%;
 	position:relative;
 	padding:0 0;
+	background-color: #846445;
 }
 .main{
 	display:block;
@@ -47,6 +47,7 @@ footer{
 	border-bottom-style:inset;
 	border-top-style:outset;
 	border-color: #636363;
+	border-radius: 3px;
 	align-content: center;
 	padding-bottom:40px;
 	overflow: auto;
@@ -57,6 +58,7 @@ nav {
 	border-bottom: inset;
 	background-color:#8b8b8b;
 	border-bottom-color: #636363;
+	border-radius: 0px 0px 5px 5px;
 }
 nav ul{
 	margin: 0;

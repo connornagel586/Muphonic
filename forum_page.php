@@ -16,6 +16,7 @@ $createdBy = $dao->find_user($topic['created_by']);
  <div class="topic_page">
    <div id='this_topic'><h4><?php echo $topic['topic_title']?></h4>
      <?php
+		 print "<div class=\"topic_desc\">" . $topic['topic_text'] . "</div>";
      print "<div class=\"topic_info\">" . "Created by " .
       $createdBy['username']. " # comments: " . $topic['num_comments'] . " Time created: " . $topic['time_created']
      . "</div";

@@ -7,15 +7,12 @@ $("document").ready(function(){
   });
 
   $("#add_topic").click(function(){
-    var str =		   "<div class=\"this_topic\">\
-    <input type=\"text\" placeholder=\"Title\"  name=\"class\">\
-    <input type=\"text\" placeholder=\"Class Number\" name=\"classNum\"><br>\
-    <input type=\"text\" placeholder=\"Professor\" name=\"professor\">\
-    <input type=\"text\" placeholder=\"Credits\" name=\"credits\"><br>\
-    <input type=\"text\" placeholder=\"Grade\" name=\"grade\"><br>\
-    </div>"
-
-    $(".new_topic").append(str);
+    $(".this_topic").toggle();
+    if($(".this_topic").is(":visible")){
+      $("#add_topic").text("Close Topic");
+    }else{
+      $("#add_topic").text("New Topic");
+    }
   });
 
 

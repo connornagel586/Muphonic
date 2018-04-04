@@ -7,3 +7,7 @@
 #login, #create_account{
   display:inline;
 }
+.create_account{
+  position:relative;
+  top: 30px;
+}
