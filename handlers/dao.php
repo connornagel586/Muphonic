@@ -6,7 +6,7 @@ class DAO {
 	private $servername = "tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 	private $username = "lnvexydhh92ltgjy";
 	private $password = "b7j4hazh3x178cdq";
-	private $database = "Muphonic";
+	private $database = "cdrifsz9vwbwmo0y";
 
 	private function getConnection(){
 
