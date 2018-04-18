@@ -53,8 +53,12 @@ class DAO {
 		$query->execute();
 		return $query->fetch();
 	}
-	public function delete_user($username){
+	public function delete_user($user_id){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("DELETE FROM `user_info` where `user_id` = :user_id");
+		$query->bindParam(':user_id', $user_id);
 
+		$query->execute();
 	}
 	public function create_topic($topicInfo){
 		$conn = $this->getConnection();
@@ -65,9 +69,6 @@ class DAO {
 		$query->setFetchMode(PDO::FETCH_ASSOC);
 		$query->execute();
 	}
-
-	public function post_comment($postInfo){}
-	public function post_topic($postInfo){}
 
 	public function get_topics($limit){
 		$conn = $this->getConnection();
@@ -99,18 +100,88 @@ class DAO {
 		$conn = $this->getConnection();
 		$query = $conn->prepare("SELECT * FROM `topics` where `created_by` =:user_id ORDER BY `time_created` DESC LIMIT $limit");
 		$query->setFetchMode(PDO::FETCH_ASSOC);
-		//$query->bindParam(':limit', $limit);
+		
 		$query->bindParam(':user_id', $user_id);
 		$query->execute();
 
 		return $query->fetchAll();
+	}	
+	public function post_comment($postInfo){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("INSERT INTO `comments` (comment_id, topic_id, posted_by, comment_text, time_posted)
+		VALUES (:comment_id, :topic_id, :posted_by, :comment_text, :time_posted)");
+		$query->bindParam(':comment_id',	$user_data['comment_id']);
+		$query->bindParam(':topic_id', $user_data['topic_id']);
+		$query->bindParam(':posted_by', $user_data['posted_by']);
+		$query->bindParam(':comment_text', $user_data['comment_text']);
+		$query->bindParam(':time_posted', $user_data['time_posted']);
+
+		$query->execute();
 	}
-	public function modify_post($newPostValues){}
 
-	public function modify_topic($newTopicValues){}
+	public function modify_post($newPostValues){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("UPDATE `comments` SET `comment_text`=:comment_text where `comment_id` = :comment_id");
+		$query->bindParam(':comment_id', $newPostValues['comment_id']);
+		$query->bindParam(':comment_text', $newPostValues['comment_text']);
 
-	public function delete_topic($topicID){}
+		$query->execute();
+	}
 
-	public function delete_post($postID){}
+	public function modify_topic($newTopicValues){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("UPDATE `topics` SET `topic_text`=:topic_text, `topic_title` = :topic_title where `topic_id` = :topic_id");
+		$query->bindParam(':topic_id', $newPostValues['topic_id']);
+		$query->bindParam(':topic_text', $newPostValues['topic_text']);
 
+		$query->execute();
+	}
+
+	public function delete_topic($topicID){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("DELETE FROM `topics` where `topic_id` = :topic_id");
+		$query->bindParam(':topic_id', $topicID);
+
+		$query->execute();
+	}
+
+	public function delete_post($postID){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("DELETE FROM `comments` where `comment_id` = :comment_id");
+		$query->bindParam(':comment_id', $postID);
+
+		$query->execute();
+	}
+
+	public function get_rooms($limit){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("SELECT * FROM `rooms`  ORDER BY `time_created` DESC LIMIT $limit");
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$query->execute();
+
+		return $query->fetchAll();
+	}
+
+	public function get_room($room_ID){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("SELECT * FROM `rooms`  where `room_id` = :room_id");
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->bindParam(':room_id', $room_ID);
+		$query->execute();
+
+		return $query->fetch();
+	}
+
+	public function create_room($room_info){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("INSERT INTO `rooms` (`room_id`, `room_title`, `created_by`,`time_created`)
+		VALUES (NULL, :roomtitle, :created_by, CURRENT_TIMESTAMP);");
+		$query->bindParam(':roomtitle', $topicInfo['room_title']);
+		$query->bindParam(':created_by', $topicInfo['created_by']);
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->execute();
+	}
+
+	
 						}

@@ -21,16 +21,16 @@ include('template/header.php');
 		<div id='topics'>
 			<?php
 			$limit = 10;
-			$topics = $dao->get_topics($limit);
-			//$topics = array_shift($data);
+			$rooms = $dao->get_rooms($limit);
+			
 
-			foreach($topics as $topic){
-				$data = $dao->find_user($topic['created_by']);
+			foreach($rooms as $room){
+				$data = $dao->find_user($room['created_by']);
 				$username = array_shift($data);
-				print	"<div class=\"topic\" value=\"" . $topic['topic_id']. "\">"
-				. $topic['topic_title'] . "<span>created by " .
+				print	"<div class=\"topic\" value=\"" . $room['room_id']. "\">"
+				. $room['room_title'] . "<span>created by " .
 				 $username . " " .
-				$topic['time_created'] . "</span>" .
+				$room['time_created'] . "</span>" .
 				"</div>";
 
 			}
