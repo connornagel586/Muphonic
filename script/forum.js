@@ -14,6 +14,13 @@ $("document").ready(function(){
       $("#add_topic").text("New Topic");
     }
   });
-
+  $("#add_comment").click(function(){
+    $(".this_comment").toggle();
+    if($(".this_comment").is(":visible")){
+      $("#add_comment").text("Close Comment");
+    }else{
+      $("#add_comment").text("New Comment");
+    }
+  });
 
 });

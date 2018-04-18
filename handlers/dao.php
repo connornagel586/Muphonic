@@ -8,6 +8,12 @@ class DAO {
 	private $password = "b7j4hazh3x178cdq";
 	private $database = "cdrifsz9vwbwmo0y";
 
+	// private $servername = "localhost";
+	// private $username = "root";
+	// private $password = "";
+	// private $database = "Muphonic";
+
+
 	private function getConnection(){
 
 		try {
@@ -60,16 +66,17 @@ class DAO {
 
 		$query->execute();
 	}
-	public function create_topic($topicInfo){
+	public function post_topic($topicInfo){
 		$conn = $this->getConnection();
-		$query = $conn->prepare("INSERT INTO `topics` (`topic_id`, `topic_title`, `created_by`, `num_comments`, `time_created`)
-		VALUES (NULL, :topictitle, :created_by, '0', CURRENT_TIMESTAMP);");
+		$query = $conn->prepare("INSERT INTO `topics` (`topic_id`,`topic_title`, `topic_text`, `created_by`, `num_comments`, `time_created`)
+		VALUES (null,:topictitle, :topictext, :created_by, 0, CURRENT_TIMESTAMP);");
+		echo print_r($topicInfo);
+
 		$query->bindParam(':topictitle', $topicInfo['topic_title']);
-		$query->bindParam(':created_by', $topicInfo['created_by']);
-		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->bindParam(':topictext', $topicInfo['topic_text']);
+		$query->bindParam(':created_by',$topicInfo['created_by']);
 		$query->execute();
 	}
-
 	public function get_topics($limit){
 		$conn = $this->getConnection();
 		$query = $conn->prepare("SELECT * FROM `topics`  ORDER BY `time_created` DESC LIMIT $limit");
@@ -100,21 +107,18 @@ class DAO {
 		$conn = $this->getConnection();
 		$query = $conn->prepare("SELECT * FROM `topics` where `created_by` =:user_id ORDER BY `time_created` DESC LIMIT $limit");
 		$query->setFetchMode(PDO::FETCH_ASSOC);
-		
 		$query->bindParam(':user_id', $user_id);
 		$query->execute();
 
 		return $query->fetchAll();
-	}	
+	}
 	public function post_comment($postInfo){
 		$conn = $this->getConnection();
 		$query = $conn->prepare("INSERT INTO `comments` (comment_id, topic_id, posted_by, comment_text, time_posted)
-		VALUES (:comment_id, :topic_id, :posted_by, :comment_text, :time_posted)");
-		$query->bindParam(':comment_id',	$user_data['comment_id']);
-		$query->bindParam(':topic_id', $user_data['topic_id']);
-		$query->bindParam(':posted_by', $user_data['posted_by']);
-		$query->bindParam(':comment_text', $user_data['comment_text']);
-		$query->bindParam(':time_posted', $user_data['time_posted']);
+		VALUES (null, :topic_id, :posted_by, :comment_text, CURRENT_TIMESTAMP)");
+		$query->bindParam(':topic_id', $postInfo['topic_id']);
+		$query->bindParam(':posted_by', $postInfo['posted_by']);
+		$query->bindParam(':comment_text', $postInfo['comment_text']);
 
 		$query->execute();
 	}
@@ -157,7 +161,7 @@ class DAO {
 		$conn = $this->getConnection();
 		$query = $conn->prepare("SELECT * FROM `rooms`  ORDER BY `time_created` DESC LIMIT $limit");
 		$query->setFetchMode(PDO::FETCH_ASSOC);
-		
+
 		$query->execute();
 
 		return $query->fetchAll();
@@ -183,5 +187,5 @@ class DAO {
 		$query->execute();
 	}
 
-	
+
 						}

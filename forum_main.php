@@ -11,7 +11,7 @@ if(!isset($_SESSION['user_id'])){
 $dao = new dao();
 include('template/header.php');
 ?>
-
+			<div class="main">
 			<div class="user_topics">
 				<div id='my_topics'><h4>My Topics</h4>
 					<?php
@@ -27,7 +27,7 @@ include('template/header.php');
 					}
 					?>
 				</div>
-				<div id='mypinned'><h4>Pinned Topics</h4></div>
+				<div id='mypinned'><h5>Pinned Topics</h5></div>
 			</div>
 			<div class="topic_panel">
 				<h4>Topics</h4>

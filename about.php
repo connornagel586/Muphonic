@@ -8,8 +8,8 @@ if(isset($_SESSION['user_id'])){
 }
 include('template/header.php');
 ?>
-
+	<div class="main">
 				<div class="descriptBody">
-					<p>This site has the forum pages part working, however the chat still needs work because I'm still trying to figure out how to use ajax.</p>
+					<p>The forum's pages have basic functionality. However, the chat still needs work and I need to figure out how to host an audio playlist.</p>
 				</div>
 <?php include('template/footer.php'); ?>

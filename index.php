@@ -21,6 +21,8 @@ if (isset($_SESSION['presets'])) {
 unset($_SESSION['presets']);
 unset($_SESSION['messages']);
 ?>
+
+			<div class="main">
 			<div id="login">
 			<form action="handlers/loginHandler.php" method="post">
 				<label>Login:</label><br>

@@ -21,8 +21,8 @@
 				break;
 
 				case "home_page.php":
-				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/forum.css\">";
-				$pageTitle ="Home Page";
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/home.css\">";
+				$pageTitle = $_SESSION['username'];
 				break;
 
 				case "about_home":
@@ -60,28 +60,32 @@
 		<body>
 			<div id="container">
 				<header>
-					<img src="images/mu.png" id="icon">
 					<h1><?php echo $pageTitle?></h1>
+					<img src="images/mu.png" id="icon"></img>
 				</header>
 
 				<nav>
 					<ul>
 						<?php
 						if(isset($_SESSION['user_id'])){
-							echo "<a href=\"about.php\">About</a>
-							<a href=\"home_page.php\">Home</a>
-							<a href=\"chat_main.php\">Chat</a>
-							<a href=\"forum_main.php\">Forum</a>
+							echo "<a ". (($pageTitle == "About")? "id=\"currentpage\"":"")
+							. "href=\"about.php\">About</a>
+							<a ". (($pageTitle == "Home Page")? "id=\"currentpage\"":"")
+							. "href=\"home_page.php\">Home</a>
+							<a ". (($pageTitle == "Chat")? "id=\"currentpage\"":"")
+							. "href=\"chat_main.php\">Chat</a>
+							<a ". (($pageTitle == "Forum")? "id=\"currentpage\"":"")
+							. "href=\"forum_main.php\">Forum</a>
 							<a href=\"handlers/signoutHandler.php\">Sign Out</a>";
 						}
 						else if($_SESSION['current_page'] == "about_index"){
 							echo "<a href=\"about.php\">About</a>
-							<a href=\"index.php\">Index</a>";
+							<a href=\"index.php\">Login</a>";
 						}
 						else{
 						echo "<a href=\"about.php\">About</a>";
 					}
+
 						?>
 					</ul>
 				</nav>
-				<div class="main">

@@ -12,7 +12,7 @@ if(!isset($_SESSION['user_id'])){
 $dao = new dao();
 include('template/header.php');
 ?>
-
+	<div class="main">
 <div class="user_topics">
 	<div id='mypinned'><h4>Pinned Chats</h4></div>
 </div>
@@ -22,7 +22,7 @@ include('template/header.php');
 			<?php
 			$limit = 10;
 			$rooms = $dao->get_rooms($limit);
-			
+
 
 			foreach($rooms as $room){
 				$data = $dao->find_user($room['created_by']);

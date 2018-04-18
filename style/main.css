@@ -10,20 +10,62 @@ html,body {
 header{
 	background-color: #8b8b8b;
 	height:100px;
-	padding:10px;
+}
+#currentpage{
+	background-color: #484343;
+	color: #FFFFFF;
+	border-radius: 5px 5px 0px 0px;
 }
 header h1{
-	display: inline;
+display:inline-block;
+}
+header img{
+	float:right;
+	margin-right:2%;
+}
+h4{
+	background-color: #484343;
+	color:#FFFFFF;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;
+	border-radius:0px 0px 2px 2px;
+	border: solid 1px;
+	border-bottom-width: 2px;
+	border-color:black;
+}
+h5{
+	background-color: #484343;
+	color:#FFFFFF;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;
+	border-radius:0px 0px 2px 2px;
+	border: solid 1px;
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	border-color:black;
+}
+h1{
+margin:0;
+padding: 20px;
+background-color: #484343;
+color:#FFFFFF;
+width: 35%;
+border-radius: 0px 0px 5px 0px;
+text-align:center;
 }
 footer{
 	margin: 0;
 	bottom: 0;
 	border-top:outset;
 	width:100%;
-	height:40px;
+	height:30px;
 	background-color:#8b8b8b;
-	border-top-color: #636363;
+	border-top-color: #484343;
 	position:absolute;
+}
+footer p {
+	margin:0;
+	padding:6px;
 }
 #icon{
 	height: 100px;
@@ -33,12 +75,12 @@ footer{
 	min-height:100%;
 	position:relative;
 	padding:0 0;
-	background-color: #846445;
+	background-color: #1d1d1d;
 }
 .main{
 	display:block;
 	padding:2%;
-	background-color: #db5a1e;
+	background-color: #d2581f;
 	min-height:200px;
 	width: 80%;
 	margin: 20px 8% 80px 8%;
@@ -57,7 +99,7 @@ footer{
 nav {
 	border-bottom: inset;
 	background-color:#8b8b8b;
-	border-bottom-color: #636363;
+	border-bottom-color: #484343;
 	border-radius: 0px 0px 5px 5px;
 }
 nav ul{
@@ -66,7 +108,6 @@ nav ul{
 }
 nav a{
 	display: inline;
-	border-right: solid;
 	margin: 0px;
 	text-decoration: none;
 	font-size: 20px;

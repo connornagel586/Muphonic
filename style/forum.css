@@ -2,22 +2,22 @@
 	min-height: 500px;
 	width: 20%;
 	margin: auto 0.5%;
-	background-color:#8b8b8b;
+	background-color:#b3a195;
 	text-align:center;
   display:block;
   float:left;
-	border: solid 2px;
+	border: solid 1px;
 	border-radius: 5px;
 }
 
 .topic_panel{
 	width: 78%;
 	min-height:500px;
-	background-color:#8b8b8b;
+	background-color:#b3a195;
 	text-align:center;
 	float:left;
 	position:relative;
-	border: solid 2px;
+	border: solid 1px;
 	border-radius: 5px;
 }
 .topic{
@@ -28,8 +28,8 @@
 	text-decoration: none;
 	border-color:black;
 	color: black;
-	background-color:#d4d4d4;
-	border-radius: 10px;
+	background-color:#cec3bb;
+	border-radius: 5px;
 	cursor: pointer;
 }
 #topics{
@@ -83,10 +83,69 @@
 float:right;
 }
 .topic_page{
-	width: 90%;
+	width: 100%;
 	min-height:500px;
-	background-color:#8b8b8b;
+	background-color:#b3a195;
 	text-align:center;
 	float:left;
+	margin:auto;
 	position:relative;
+	border: solid 1px;
+	border-radius:2px;
+}
+.main{
+	padding: 0.5%;
+	margin: 20px 19% 80px 1%;
+
+}
+#comment_panel{
+	width:90%;
+	margin:2% 5%;
+	border:solid 1px;
+	position:relative;
+	min-height:400px;
+	background-color: #a09f9d;
+}
+.new_comment{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+}
+.new_comment form{
+	float:left;
+	margin:10px;
+	padding: 5px;
+	border: solid 1px;
+	background-color: #8b8b8b;
+	border: solid 2px;
+	border-radius: 5px;
+	position:absolute;
+	bottom: 5px;
+	left: 100px;
+}
+.new_comment form > textarea[name="title"]{
+	float:left;
+	border: solid 1px;
+	margin:5px;
+	width: 430px;
+	height:60px;
+	border-radius: 5px;
+	resize: none;
+}
+.new_comment form > textarea[name="topic_text"]{
+	float:left;
+	border: solid 1px;
+	margin:5px;
+	width: 550px;
+	height:230px;
+	border-radius: 5px;
+	resize: none;
+}
+#add_comment{
+  margin: 10px;
+	float:left;
+	position:absolute;
+	bottom:5px;
+	left: 5px;
 }

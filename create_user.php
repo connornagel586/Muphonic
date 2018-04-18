@@ -17,7 +17,7 @@ if (isset($_SESSION['presets'])) {
 unset($_SESSION['presets']);
 unset($_SESSION['messages']);
 ?>
-
+	<div class="main">
 <div id="create_account">
 
   <form  class="create_account_form" action="handlers/loginHandler.php" method="post">
