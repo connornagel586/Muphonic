@@ -7,6 +7,7 @@ $_SESSION['presets'] = array($_POST);
 if(isset($_POST["email"])){
 	$username = $_POST["username"];
 	$password = $_POST["password"];
+	$email = $_POST["email"];
 	$correct = true;
 	if(empty($username)){
 		$messages['username'] = "Please enter a name";
@@ -20,9 +21,9 @@ if(isset($_POST["email"])){
 		$messages['email'] = "Please provide an email";
 		$correct = false;
 	}
-	$regex = "/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/";
+	$regex = "/[a-zA-Z0-9_\-\.+]+@[a-zA-Z0-9\-]+.[a-zA-Z]+/";
 	if(!preg_match($regex, $email)){
-		$messages['email'] = "Invalid email format xxxxx@xxxxx.xxx";
+		$messages['email'] = "Invalid email format xxxxx@xxxxx.xxx $email";
 		$correct = false;
 	}
 	if($correct == false){
@@ -32,13 +33,13 @@ if(isset($_POST["email"])){
 	}
 $newAccount = array(
 	"username"=>htmlspecialchars($_POST["username"]),
-	"password"=>htmlspecialchars($_POST["password"]),
+	"password"=>password_hash(htmlspecialchars($_POST["password"]), PASSWORD_BCRYPT),
 	"email"=>htmlspecialchars($_POST["email"])
 );
 $dao = new dao();
 
 $dao->insert_User($newAccount);
-header("Location: ../create_user.php");
+header("Location: ../index.php");
 exit;
 }
 else{
@@ -54,14 +55,20 @@ else{
 		$correct = false;
 	}
 
-	$newAccount = array(
+	$getAccount = array(
 		"username"=>htmlspecialchars($username),
 		"password"=>htmlspecialchars($password)
 	);
 	$dao = new dao();
 
-	$userdata = $dao->get_User($newAccount);
+	$userdata = $dao->get_User($getAccount);
 	$user = array_shift($userdata);
+
+	if(!password_verify($getAccount['password'], $user['password'])){
+		$messages['password'] = "Incorrect Password";
+		$correct = false;
+	}else{
+
 
 	if(!empty($user['user_id'])){
 		$_SESSION['user_id'] = $user['user_id'];
@@ -71,6 +78,7 @@ else{
 		$messages['notFound'] = "User not found";
 		$correct = false;
 	}
+}
 	if($correct == false){
 		$_SESSION['messages'] = $messages;
 		header("Location: ../index.php");
@@ -78,6 +86,7 @@ else{
 	}
 
 	header('Location: ../home_page.php');
+
 }
 
 

@@ -2,16 +2,15 @@
 
 class DAO {
 
+	// private $servername = "tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+	// private $username = "lnvexydhh92ltgjy";
+	// private $password = "b7j4hazh3x178cdq";
+	// private $database = "cdrifsz9vwbwmo0y";
 
-	private $servername = "tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-	private $username = "lnvexydhh92ltgjy";
-	private $password = "b7j4hazh3x178cdq";
-	private $database = "cdrifsz9vwbwmo0y";
-
-	// private $servername = "localhost";
-	// private $username = "root";
-	// private $password = "";
-	// private $database = "Muphonic";
+	private $servername = "localhost";
+	private $username = "root";
+	private $password = "";
+	private $database = "Muphonic";
 
 
 	private function getConnection(){
@@ -43,8 +42,7 @@ class DAO {
 	}
 	public function get_user($user_login){
 		$conn = $this->getConnection();
-		$query = $conn->prepare("SELECT * FROM `user_info` where `password`=:password AND `email`=:username OR `username`=:username");
-		$query->bindParam(':password', $user_login['password']);
+		$query = $conn->prepare("SELECT * FROM `user_info` where `username`=:username");
 		$query->bindParam(':username', $user_login['username']);
 		$query->setFetchMode(PDO::FETCH_ASSOC);
 		$query->execute();
@@ -177,6 +175,27 @@ class DAO {
 		return $query->fetch();
 	}
 
+	public function get_new_messages($id = 0 ,$room_ID){
+		$conn = $this->getConnection();
+
+		if($id > 0){
+
+		$query = $conn->prepare("SELECT * FROM `chat` WHERE `chat_id` > :id AND `room_id` = :room_id ORDER BY `time_posted` ASC");
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->bindParam(':room_id', $room_ID);
+		$query->bindParam(':id', $id);
+		$query->execute();
+
+		return $query->fetchAll();
+	}
+	else{
+		$query = $conn->prepare("SELECT * FROM (SELECT * FROM `chat` WHERE `room_id` = :room_id ORDER BY `time_posted` DESC LIMIT 20) AS Last50 ORDER BY `time_posted` ASC");
+		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->bindParam(':room_id', $room_ID);
+		$query->execute();
+		return $query->fetchAll();
+	}
+	}
 	public function create_room($room_info){
 		$conn = $this->getConnection();
 		$query = $conn->prepare("INSERT INTO `rooms` (`room_id`, `room_title`, `created_by`,`time_created`)
@@ -186,6 +205,17 @@ class DAO {
 		$query->setFetchMode(PDO::FETCH_ASSOC);
 		$query->execute();
 	}
+	public function post_chat($postInfo){
+		$conn = $this->getConnection();
+		$query = $conn->prepare("INSERT INTO `chat` (chat_id, room_id, posted_by, time_posted, message)
+		VALUES (null, :room_id, :posted_by, CURRENT_TIMESTAMP, :comment_text)");
+		$query->bindParam(':room_id', $postInfo['room_id']);
+		$query->bindParam(':posted_by', $postInfo['posted_by']);
+		$query->bindParam(':comment_text', $postInfo['comment_text']);
+
+		$query->execute();
+	}
+
 
 
 						}

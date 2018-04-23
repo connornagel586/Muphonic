@@ -50,6 +50,7 @@ DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE IF NOT EXISTS `rooms`(
   `room_id` int(10) NOT NULL AUTO_INCREMENT,
   `room_title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
+  `room_desc` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
   `created_by` int(4) NOT NULL,
   `time_created` DATETIME NOT NULL,
   PRIMARY KEY (`room_id`),
@@ -62,10 +63,12 @@ CREATE TABLE IF NOT EXISTS `rooms`(
 DROP TABLE IF EXISTS `chat`;
 CREATE TABLE IF NOT EXISTS `chat`(
   `chat_id` int(10) NOT NULL AUTO_INCREMENT,
+  `room_id` int(10) NOT NULL,
   `posted_by` int(4) NOT NULL,
   `time_posted` DATETIME NOT NULL,
   `message` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NOT NULL,
   PRIMARY KEY (`chat_id`),
   CONSTRAINT `chat_user` FOREIGN KEY (`posted_by`) REFERENCES `user_info` (`user_id`) ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT `chat_room` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`) ON UPDATE CASCADE ON DELETE CASCADE,
   KEY `Chat ID` (`chat_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;

@@ -13,12 +13,12 @@ $dao = new dao();
 include('template/header.php');
 ?>
 	<div class="main">
-<div class="user_topics">
+<div class="user_chats">
 	<div id='mypinned'><h4>Pinned Chats</h4></div>
 </div>
-<div class="topic_panel">
+<div class="chat_panel">
 	<h4>Chat Rooms</h4>
-		<div id='topics'>
+		<div id='chats'>
 			<?php
 			$limit = 10;
 			$rooms = $dao->get_rooms($limit);
@@ -27,7 +27,7 @@ include('template/header.php');
 			foreach($rooms as $room){
 				$data = $dao->find_user($room['created_by']);
 				$username = array_shift($data);
-				print	"<div class=\"topic\" value=\"" . $room['room_id']. "\">"
+				print	"<div class=\"chat\" value=\"" . $room['room_id']. "\">"
 				. $room['room_title'] . "<span>created by " .
 				 $username . " " .
 				$room['time_created'] . "</span>" .
