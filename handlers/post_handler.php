@@ -17,6 +17,16 @@ header("Location:../forum_main.php");
 exit;
 
 }
+if(isset($_POST['topic'])){
+  $newTopic = array(
+    "created_by"=>(int)($_SESSION['user_id']),
+    "room_title"=>htmlspecialchars($_POST['topic']),
+    "room_desc"=>htmlspecialchars($_POST['chat_text'])
+  );
+  $dao->create_room($newTopic);
+  header("Location:../forum_main.php");
+  exit;
+}
 
 if(isset($_POST['comment_text'])){
 $text = $_POST['comment_text'];

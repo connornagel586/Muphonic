@@ -81,6 +81,8 @@
 }
 .topic span{
 float:right;
+font-size: 10px;
+color: silver;
 }
 .topic_page{
 	width: 100%;

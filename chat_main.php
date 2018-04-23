@@ -35,7 +35,14 @@ include('template/header.php');
 
 			}
 			?>
-
+			<div class="new_chat">
+			<button type="button" id="add_chat">New Chat</button>
+			<form action="handlers/post_handler.php" method="post" class="this_chat" hidden>
+			<textarea placeholder="Topic"  name="topic"></textarea><br>
+			<textarea placeholder="Chat Text" name="chat_text"></textarea>
+			<input type="submit" value="Create">
+		</form>
+		</div>
 		</div>
 </div>
 

@@ -198,10 +198,11 @@ class DAO {
 	}
 	public function create_room($room_info){
 		$conn = $this->getConnection();
-		$query = $conn->prepare("INSERT INTO `rooms` (`room_id`, `room_title`, `created_by`,`time_created`)
-		VALUES (NULL, :roomtitle, :created_by, CURRENT_TIMESTAMP);");
-		$query->bindParam(':roomtitle', $topicInfo['room_title']);
-		$query->bindParam(':created_by', $topicInfo['created_by']);
+		$query = $conn->prepare("INSERT INTO `rooms` (`room_id`, `room_title`,`room_desc`, `created_by`,`time_created`)
+		VALUES (NULL, :roomtitle,:roomdesc, :created_by, CURRENT_TIMESTAMP);");
+		$query->bindParam(':roomtitle', $room_info['room_title']);
+		$query->bindParam(':roomdesc', $room_info['room_desc']);
+		$query->bindParam(':created_by', $room_info['created_by']);
 		$query->setFetchMode(PDO::FETCH_ASSOC);
 		$query->execute();
 	}
@@ -215,6 +216,7 @@ class DAO {
 
 		$query->execute();
 	}
+
 
 
 

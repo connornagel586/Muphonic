@@ -18,6 +18,15 @@ $(document).ready(function(){
 
   });
 
+  $("#add_chat").click(function(){
+    $(".this_chat").toggle();
+    if($(".this_chat").is(":visible")){
+      $("#add_chat").text("Close Chat");
+    }else{
+      $("#add_chat").text("New Chat");
+    }
+  });
+
 function showNewMessages(){
   $.ajax({
       url: 'handlers/chat_handler.php',
