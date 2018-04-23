@@ -2,15 +2,15 @@
 
 class DAO {
 
-	// private $servername = "tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-	// private $username = "lnvexydhh92ltgjy";
-	// private $password = "b7j4hazh3x178cdq";
-	// private $database = "cdrifsz9vwbwmo0y";
+	private $servername = "tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+	private $username = "lnvexydhh92ltgjy";
+	private $password = "b7j4hazh3x178cdq";
+	private $database = "cdrifsz9vwbwmo0y";
 
-	private $servername = "localhost";
-	private $username = "root";
-	private $password = "";
-	private $database = "Muphonic";
+	// private $servername = "localhost";
+	// private $username = "root";
+	// private $password = "";
+	// private $database = "Muphonic";
 
 
 	private function getConnection(){
